@@ -1,0 +1,40 @@
+# GitHub Actions workflow for deploying Vite + React project from a subfolder to GitHub Pages
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # основная ветка
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: |
+          cd qr-code-component-main/qr-code-component
+          npm ci
+
+      - name: Build project
+        run: |
+          cd qr-code-component-main/qr-code-component
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: qr-code-component-main/qr-code-component/dist
+          # Возможные дополнительные опции:
+          # user_name: 'github-actions'
+          # user_email: 'github-actions@github.com'
