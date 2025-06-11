@@ -1,0 +1,45 @@
+body {
+  background-color: var(--slate-300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  padding: var(--space-200);
+  padding-bottom: var(--space-500) !important;
+  background-color: white;
+  border-radius: 20px;
+  gap: var(--space-300);
+}
+
+.qr-image img {
+  border-radius: 10px;
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+  text-align: center;
+  padding: 0 var(--space-200);
+}
+
+.text-title {
+  font-size: 22px;
+  line-height: 120%;
+  letter-spacing: 0;
+  font-weight: bold;
+  color: var(--slate-900);
+}
+
+.text-regular {
+  font-size: 15px;
+  line-height: 140%;
+  letter-spacing: 0.2px;
+  color: var(--slate-500);
+}
